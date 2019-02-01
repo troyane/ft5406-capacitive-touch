@@ -141,6 +141,9 @@ while true ; do
     }
 
     X=$(( 256 * 0x${BYTES[0]} + 0x${BYTES[1]} ))
+    
+    # Invert X
+    X=$(( $CTP_SIZE - $X ))
     Y=$(( 256 * 0x${BYTES[2]} + 0x${BYTES[3]} ))
     if [ $RELEASED == "1" ] ; then
       # echo "GOING TO FORWARD TOUCH AT (${X}, ${Y})"
