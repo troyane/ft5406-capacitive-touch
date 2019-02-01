@@ -65,12 +65,12 @@ I2C_ADDR=0x38
 #
 # Verify some dependencies
 #
-which xdotool > /dev/null || {
-  echo "ERROR: You need to have xdotool installed (to forward clicks to X)"
-  echo "       Install it by running"
-  echo "       sudo apt-get install xdotool"
-  exit 2;
-}
+#which xdotool > /dev/null || {
+#  echo "ERROR: You need to have xdotool installed (to forward clicks to X)"
+#  echo "       Install it by running"
+#  echo "       sudo apt-get install xdotool"
+#  exit 2;
+#}
 
 which i2cget > /dev/null && \
 which i2cdump > /dev/null && \
@@ -122,7 +122,8 @@ while true ; do
 
   if [ "${NUM_TOUCHES}" == "0" ] ; then
     [ $RELEASED == 0 ] && {
-      xdotool mouseup 1
+      echo "mouseup"
+      # xdotool mouseup 1
     }
     RELEASED=1
   fi
@@ -152,10 +153,10 @@ while true ; do
     Y=$(( 256 * 0x${BYTES[2]} + 0x${BYTES[3]} ))
     if [ $RELEASED == "1" ] ; then
       echo "GOING TO FORWARD TOUCH AT (${X}, ${Y})"
-      xdotool mousemove --sync ${X} ${Y} mousedown 1
+      # xdotool mousemove --sync ${X} ${Y} mousedown 1
     else
       echo "GOING TO FORWARD DRAG TO (${X}, ${Y})"
-      xdotool mousemove --sync ${X} ${Y}
+      # xdotool mousemove --sync ${X} ${Y}
     fi
     sleep 0.05
     RELEASED=0
