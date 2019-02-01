@@ -122,7 +122,7 @@ while true ; do
 
   if [ "${NUM_TOUCHES}" == "0" ] ; then
     [ $RELEASED == 0 ] && {
-      echo "mouseup"
+      #echo "mouseup"
       # xdotool mouseup 1
     }
     RELEASED=1
@@ -152,10 +152,12 @@ while true ; do
     X=$(( 256 * 0x${BYTES[0]} + 0x${BYTES[1]} ))
     Y=$(( 256 * 0x${BYTES[2]} + 0x${BYTES[3]} ))
     if [ $RELEASED == "1" ] ; then
-      echo "GOING TO FORWARD TOUCH AT (${X}, ${Y})"
+      #echo "GOING TO FORWARD TOUCH AT (${X}, ${Y})"
+      cursor_emulation.sh ${X} ${Y}
       # xdotool mousemove --sync ${X} ${Y} mousedown 1
     else
-      echo "GOING TO FORWARD DRAG TO (${X}, ${Y})"
+      #echo "GOING TO FORWARD DRAG TO (${X}, ${Y})"
+      cursor_emulation.sh ${X} ${Y}
       # xdotool mousemove --sync ${X} ${Y}
     fi
     sleep 0.05
