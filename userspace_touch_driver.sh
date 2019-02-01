@@ -121,10 +121,11 @@ while true ; do
   }
 
   if [ "${NUM_TOUCHES}" == "0" ] ; then
-    [ $RELEASED == 0 ] && {
+    [ $RELEASED == 0 ]
+    #&& {
       #echo "mouseup"
       # xdotool mouseup 1
-    }
+    #}
     RELEASED=1
   fi
 
