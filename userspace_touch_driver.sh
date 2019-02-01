@@ -154,11 +154,11 @@ while true ; do
     Y=$(( 256 * 0x${BYTES[2]} + 0x${BYTES[3]} ))
     if [ $RELEASED == "1" ] ; then
       #echo "GOING TO FORWARD TOUCH AT (${X}, ${Y})"
-      cursor_emulation.sh ${X} ${Y}
+      ./cursor_emulation.sh ${X} ${Y}
       # xdotool mousemove --sync ${X} ${Y} mousedown 1
     else
       #echo "GOING TO FORWARD DRAG TO (${X}, ${Y})"
-      cursor_emulation.sh ${X} ${Y}
+      ./cursor_emulation.sh ${X} ${Y}
       # xdotool mousemove --sync ${X} ${Y}
     fi
     sleep 0.05
