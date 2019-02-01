@@ -149,7 +149,7 @@ while true ; do
       #echo "GOING TO FORWARD DRAG TO (${X}, ${Y})"
       ./cursor_emulation.sh $CTP_SIZE ${X} ${Y} "DRAG"
     fi
-    sleep 0.05
+    sleep 0.6
     RELEASED=0
   fi
 done
