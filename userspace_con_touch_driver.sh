@@ -112,8 +112,7 @@ while true ; do
   }
 
   if [ "${NUM_TOUCHES}" == "0" ] ; then
-    [ $RELEASED == 0 ]
-    && {
+    [ $RELEASED == 0 ] && {
         # echo "mouseup"
         ./cursor_emulation.sh $CTP_SIZE 1 1 "EMPTY"
     }
